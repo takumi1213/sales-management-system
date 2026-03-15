@@ -1,0 +1,24 @@
+<form th:action="@{/customers}" th:object="${customer}" method="post">
+
+  <input type="hidden" th:field="*{id}">
+
+  <div>
+    名前:
+    <input type="text" th:field="*{name}" />
+  </div>
+
+  <div>
+    Email:
+    <input type="text" th:field="*{email}" />
+  </div>
+
+  <div>
+    会社:
+    <input type="text" th:field="*{company}" />
+  </div>
+
+  <br>
+
+  <button type="submit">登録</button>
+
+</form>
