@@ -1,6 +1,7 @@
 package com.takumi.sales.entity;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -10,10 +11,11 @@ public class Customer {
   private Long id;
 
   private String name;
-
   private String email;
-
   private String company;
+
+  @OneToMany(mappedBy = "customer")
+  private List<Deal> deals;
 
   public Long getId() {
     return id;
@@ -45,5 +47,13 @@ public class Customer {
 
   public void setCompany(String company) {
     this.company = company;
+  }
+
+  public List<Deal> getDeals() {
+    return deals;
+  }
+
+  public void setDeals(List<Deal> deals) {
+    this.deals = deals;
   }
 }

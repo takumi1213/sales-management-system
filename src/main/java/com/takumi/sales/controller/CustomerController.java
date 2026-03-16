@@ -51,5 +51,14 @@ public class CustomerController {
     return "redirect:/customers";
   }
 
+  @GetMapping("/customers/{id}")
+  public String customerDetail(@PathVariable Long id, Model model) {
+
+    Customer customer = customerRepository.findById(id).orElseThrow();
+
+    model.addAttribute("customer", customer);
+
+    return "customer-detail";
+  }
 
 }
