@@ -9,6 +9,19 @@
 
 <h1>顧客一覧</h1>
 
+<form th:action="@{/customers}" method="get">
+
+  <input type="text"
+         name="keyword"
+         th:value="${keyword}"
+         placeholder="顧客名検索">
+
+  <button type="submit">検索</button>
+
+</form>
+
+<br>
+
 <a href="/customers/new">顧客登録</a>
 
 <table border="1">

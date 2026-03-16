@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class CustomerController {
 
@@ -16,8 +18,19 @@ public class CustomerController {
   }
 
   @GetMapping("/customers")
-  public String listCustomers(Model model) {
-    model.addAttribute("customers", customerRepository.findAll());
+  public String listCustomers(@RequestParam(required = false) String keyword, Model model) {
+
+    List<Customer> customers;
+
+    if (keyword != null && !keyword.isEmpty()) {
+      customers = customerRepository.findByNameContaining(keyword);
+    } else {
+      customers = customerRepository.findAll();
+    }
+
+    model.addAttribute("customers", customers);
+    model.addAttribute("keyword", keyword);
+
     return "customers";
   }
 
@@ -50,6 +63,5 @@ public class CustomerController {
 
     return "redirect:/customers";
   }
-
 
 }
