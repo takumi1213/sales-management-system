@@ -37,27 +37,20 @@ public class CustomerController {
   public String editCustomer(@PathVariable Long id, Model model) {
 
     Customer customer = customerRepository.findById(id).orElseThrow();
-
     model.addAttribute("customer", customer);
-
     return "customer-form";
   }
 
   @GetMapping("/customers/delete/{id}")
   public String deleteCustomer(@PathVariable Long id) {
-
     customerRepository.deleteById(id);
-
     return "redirect:/customers";
   }
 
   @GetMapping("/customers/{id}")
   public String customerDetail(@PathVariable Long id, Model model) {
-
     Customer customer = customerRepository.findById(id).orElseThrow();
-
     model.addAttribute("customer", customer);
-
     return "customer-detail";
   }
 

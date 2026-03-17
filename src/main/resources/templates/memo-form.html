@@ -16,10 +16,10 @@
 
     <h2 class="mb-4">商談メモ登録</h2>
 
-    <!-- 🔥 フォーム -->
+    <!--  フォーム -->
     <form th:action="@{/memos}" th:object="${memo}" method="post">
 
-      <!-- 🔥 Dealとの紐付け（超重要） -->
+      <!--  Dealとの紐付け -->
       <input type="hidden" th:field="*{deal.id}">
 
       <!-- メモ内容 -->
@@ -31,14 +31,12 @@
                   placeholder="商談内容を入力..."></textarea>
       </div>
 
-      <!-- ボタン -->
       <div class="mt-3">
 
         <button type="submit" class="btn btn-primary">
           保存
         </button>
 
-        <!-- 🔥 戻るボタン（重要） -->
         <a th:href="@{/deals/{id}(id=${memo.deal.id})}"
            class="btn btn-secondary ms-2">
           ← 戻る
