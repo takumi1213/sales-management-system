@@ -55,6 +55,7 @@
       <th>案件名</th>
       <th>金額</th>
       <th>ステータス</th>
+      <th>詳細</th>
     </tr>
 
     <tr th:each="deal : ${customer.deals}">
@@ -66,6 +67,16 @@
       <td th:text="${deal.amount}"></td>
 
       <td th:text="${deal.status}"></td>
+
+      <!-- 🔥 ここが超重要 -->
+      <td>
+        <a th:href="@{/deals/{id}(id=${deal.id})}"
+           class="btn btn-primary btn-sm">
+
+          詳細
+
+        </a>
+      </td>
 
     </tr>
 
