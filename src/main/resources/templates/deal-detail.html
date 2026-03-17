@@ -3,63 +3,49 @@
 
 <head>
   <title>案件詳細</title>
-
-  <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-light">
 
 <div class="container mt-4">
 
-  <h1 th:text="${deal.title}"></h1>
+  <div class="card shadow p-4 mb-4">
 
-  <p>
-    金額: <span th:text="${deal.amount}"></span>
-  </p>
+    <h2 th:text="${deal.title}"></h2>
 
-  <p>
-    ステータス: <span th:text="${deal.status}"></span>
-  </p>
+    <p>金額: <strong th:text="${deal.amount}"></strong></p>
 
-  <div class="mb-3">
-    <a th:href="@{/deals/{id}/memos/new(id=${deal.id})}"
-       class="btn btn-warning">
+    <p>
+      <span class="badge bg-success"
+            th:text="${deal.status}"></span>
+    </p>
 
-      商談メモ追加
+    <div class="mt-3">
+      <a th:href="@{/deals/{id}/memos/new(id=${deal.id})}"
+         class="btn btn-warning">
+        ＋ メモ追加
+      </a>
 
-    </a>
+      <!-- 🔥 追加 -->
+      <a th:href="@{/customers/{id}(id=${deal.customer.id})}"
+         class="btn btn-secondary ms-2">
+        ← 顧客へ戻る
+      </a>
+    </div>
+
   </div>
 
-  <hr>
+  <h4>商談メモ</h4>
 
-  <h2>商談メモ</h2>
+  <div class="card p-3 mb-2 shadow-sm"
+       th:each="memo : ${deal.memos}">
 
-  <table class="table table-striped">
+    <p th:text="${memo.content}"></p>
 
-    <tr>
-      <th>ID</th>
-      <th>内容</th>
-      <th>作成日</th>
-    </tr>
-
-    <tr th:each="memo : ${deal.memos}">
-
-      <td th:text="${memo.id}"></td>
-
-      <td th:text="${memo.content}"></td>
-
-      <td th:text="${memo.createdAt}"></td>
-
-    </tr>
-
-  </table>
-
-  <a href="/customers" class="btn btn-secondary mt-3">
-    顧客一覧へ戻る
-  </a>
+    <small class="text-muted"
+           th:text="${memo.createdAt}"></small>
+  </div>
 
 </div>
 
