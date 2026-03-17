@@ -40,4 +40,13 @@ public class DealController {
     return "redirect:/customers/" + deal.getCustomer().getId();
   }
 
+  @GetMapping("/deals/{id}")
+  public String dealDetail(@PathVariable Long id, Model model) {
+
+    Deal deal = dealRepository.findById(id).orElseThrow();
+
+    model.addAttribute("deal", deal);
+
+    return "deal-detail";
+  }
 }
