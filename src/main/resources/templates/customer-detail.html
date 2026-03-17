@@ -18,7 +18,7 @@
 
   <hr>
 
-  <!-- 🔥 正しい案件登録 -->
+  <!--  正しい案件登録 -->
   <a th:href="@{/customers/{id}/deals/new(id=${customer.id})}"
      class="btn btn-success mb-3">
     ＋ 案件登録
@@ -37,11 +37,11 @@
     </thead>
 
     <tbody>
-    <!-- 🔥 正しい参照 -->
+    <!--  正しい参照 -->
     <tr th:each="deal : ${customer.deals}">
       <td th:text="${deal.id}"></td>
 
-      <!-- 🔥 詳細に飛べる -->
+      <!--  詳細に飛べる -->
       <td>
         <a th:href="@{/deals/{id}(id=${deal.id})}"
            th:text="${deal.title}">
