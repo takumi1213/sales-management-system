@@ -21,7 +21,7 @@ public class MemoController {
     this.dealRepository = dealRepository;
   }
 
-  // 🔥 メモ登録画面表示
+  // メモ登録画面表示
   @GetMapping("/deals/{dealId}/memos/new")
   public String showMemoForm(@PathVariable Long dealId, Model model) {
 
@@ -35,11 +35,11 @@ public class MemoController {
     return "memo-form";
   }
 
-  // 🔥 メモ保存
+  //  メモ保存
   @PostMapping("/memos")
   public String saveMemo(@ModelAttribute Memo memo) {
 
-    // 🔥 ここが超重要（DBから取り直す）
+    //  DBから取り直す
     Deal deal = dealRepository.findById(memo.getDeal().getId()).orElseThrow();
 
     memo.setDeal(deal);
@@ -48,7 +48,7 @@ public class MemoController {
 
     memoRepository.save(memo);
 
-    // 🔥 案件詳細に戻る（おすすめ）
+    //  案件詳細に戻る
     return "redirect:/deals/" + deal.getId();
   }
 }
