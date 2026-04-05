@@ -10,12 +10,12 @@
 
 ## 🗺️ アプリURL(Railway)
 https://sales-management-system-production-96ec.up.railway.app/login  
-Username user  
-Password ad63c97f-ec91-4f76-a873-7df37f9cb794
 
-<img src="images/Login.jpg">
+※26/4/5現在　デプロイ終了・公開停止中  
+Githubからクローンしてください  
+ローカルURL localhost8080/customers 
 
-Qiita に詳細を執筆しております。   
+※Qiita に詳細を執筆しております。   
 [→JavaとSpringBootを使って営業管理アプリを開発した](https://qiita.com/shinnsekai5/items/0ca0cdcd98a7f64a7a7d)
 
 ## 🚀 主な機能
@@ -44,29 +44,33 @@ Qiita に詳細を執筆しております。
 
 ## ☑️ 動作確認
 ### 1.ログイン
-- UsernameとPasswordを入力してログインします。  
-  <img src="images/Login-movie.gif">
+- UsernameとPasswordを入力してログインします。
+  Username：user  
+  Password：ad63c97f-ec91-4f76-a873-7df37f9cb794
+- <img src="images/Login.jpg">
+  （26/4/5　ログイン機能削除）
 
 ### 2.顧客一覧
 - 左上の「顧客登録」より顧客情報を登録します。
 - 「名前」「email」「会社名」の登録が可能です。  
-  <img src="images/Customer-create.gif">
+  <img src="images/create-customer.gif">
 
 - 顧客情報を登録後、一覧に反映されるので「詳細」「編集」「削除」が選択可能になります。（CRUD処理）
-<img src="images/Customer.png">
+<img src="images/customer.png">
 
 ### 3.顧客詳細登録
 - 顧客一覧の「詳細」から「案件登録」にて顧客の案件登録ができます。
 - 「案件名」「金額」「ステータス（提案中、交渉中、受注、失注）」の登録が可能です。
-  <img src="images/Create-deal.gif">
+  <img src="images/create-deal.gif">
 
 - 案件登録を登録後、顧客一覧に表示されます。
-  <img src="images/Customer-deal.png">
+  <img src="images/create-deal.png">
 
 ### 4.商談メモ登録
 - 案件名の中に「メモ追加」ボタンがあるのでそちらから詳細を登録可能です。
 - 登録したら商談メモ一覧に表示されます。  
-  <img src="images/Create-memo.gif">
+  <img src="images/create-memo.gif">
+  <img src="images/create-memo.png">
 
 ## 👓 工夫した点
 - MVC構成を意識し、責務を明確に分離
